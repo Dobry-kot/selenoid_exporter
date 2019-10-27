@@ -16,3 +16,7 @@ services:
     command: uwsgi --http 0.0.0.0:64580 --wsgi-file main.py --callable app_dispatch
     ports:
       - 64580:64580
+
+
+
+docker run --name selenoid_exporter --restart=always --env type=router --env url=https://selen-router-02.moysklad.ru:8080/status dobrykot/selenoid_exporter:0.1-release uwsgi --http 0.0.0.0:64580 --wsgi-file main.py --callable app_dispatch
