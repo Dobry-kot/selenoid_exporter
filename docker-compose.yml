@@ -1,0 +1,18 @@
+version: "2"
+services:
+  selenoid_exporter:
+    build: .
+    image: selenoid_exporter:0.001-test
+    privileged: true
+    environment:
+      - TZ=Europe/Moscow
+      - url=${url}
+      - type=${type}
+    container_name: selenoid_exporter
+    working_dir: /selenoid_exporter
+    volumes:
+      - .:/selenoid_exporter
+    tty: true
+    command: uwsgi --http 0.0.0.0:64580 --wsgi-file main.py --callable app_dispatch
+    ports:
+      - 64580:64580
