@@ -6,7 +6,9 @@
     example: export url=https://example.com:8080/status
 
     type    - "node" or "router" for the labels metrics.
-    example: selenoid_{type}_browser_running ---> | selenoid_node_browser_running | selenoid_router_browser_running
+    example: export type=node | export type=router
+    
+    selenoid_{type}_browser_running ---> | selenoid_node_browser_running | selenoid_router_browser_running
     ```
     
     or change the variables in the docker-compose file to static.
