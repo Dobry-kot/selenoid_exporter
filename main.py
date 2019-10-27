@@ -12,5 +12,7 @@ def metrics():
     return Response(prometheus_client.generate_latest(), mimetype = content_type)
 
 if __name__ == '__main__':
+
     init = selenoidStatus().run()
-    app.run()
+    app.run(host = '0.0.0.0', port = 64580)
+
